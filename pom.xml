@@ -8,15 +8,29 @@
 		<version>2.1.9.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+	
 	<groupId>com.caio</groupId>
 	<artifactId>servicoAuxCalc</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>servicoCalc</name>
 	<description>Demo project for Spring Boot</description>
-
+	
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
+	
+	<dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Greenwich.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
 
 	<dependencies>
 		<dependency>
@@ -30,11 +44,28 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency> 
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>  
+		
+		<dependency> 
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-consul-all</artifactId>
 		</dependency>
+		
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency> 
+		
+		<dependency>
+		    <groupId>io.micrometer</groupId>
+		    <artifactId>micrometer-registry-prometheus</artifactId> 
+		</dependency>
+		
 	</dependencies>
 
 	<build>

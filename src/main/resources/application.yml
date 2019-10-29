@@ -1,0 +1,28 @@
+server:
+   port: 8083
+
+management:
+   endpoint:
+      health:
+         show-details: always
+      metrics:
+         enabled: false
+      prometheus:
+         enabled: true
+   metrics: 
+      export:
+         prometheus:
+            enabled: true
+         enabled: false
+   endpoints: 
+      web:
+         exposure:
+            include: '*'
+
+spring:
+   application: 
+      name: calcAux
+   cloud:
+       consul:
+          discovery:
+             instanceId: ${spring.application.name}:${random.value}
